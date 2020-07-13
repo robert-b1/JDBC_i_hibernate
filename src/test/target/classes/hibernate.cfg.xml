@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!--właściwość wyboru silnika DB -> MySQL-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!--właściwość wyboru sterownika-->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!--właściwość wyboru użytkownika na serwerze db którym będziemy łączyć się z bazą-->
+        <property name="hibernate.connection.username">tm_db_user</property>
+        <property name="hibernate.connection.password">qwe123</property>
+        <!--właściwość url połączenia z bazą danych-->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tm_db</property>
+        <!--właściwość wyświetlająca i formatująca zapytania SQL w konsoli-->
+        <property name="format_sql">true</property>
+        <property name="show_sql">true</property>
+        <!-- none, validate, create, update, create-drop -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- mapowanie encji na tabela i tabel na encje -->
+        <mapping class="model.User"/>
+        <mapping class="model.Role"/>
+        <mapping class="model.Post"/>
+    </session-factory>
+</hibernate-configuration>
