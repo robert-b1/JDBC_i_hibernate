@@ -1,14 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<hibernate-configuration>
+    <session-factory>
+        <!--właściwość wyboru silnika DB -> MySQL-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!--właściwość wyboru sterownika-->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!--właściwość wyboru użytkownika na serwerze db którym będziemy łączyć się z bazą-->
+        <property name="hibernate.connection.username">tm_db_user</property>
+        <property name="hibernate.connection.password">qwe123</property>
+        <!--właściwość url połączenia z bazą danych-->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tm_db?serverTimezone=UTC</property>
+        <!--właściwość wyświetlająca i formatująca zapytania SQL w konsoli-->
+        <property name="format_sql">false</property>
+        <property name="show_sql">true</property>
+        <!-- none, validate, create, update, create-drop -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- mapowanie encji na tabela i tabel na encje -->
+        <mapping class="model.User"/>
+    </session-factory>
+</hibernate-configuration>

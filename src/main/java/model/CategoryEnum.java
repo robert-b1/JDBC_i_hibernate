@@ -1,4 +1,5 @@
 package model;
 
-public class CategoryEnum {
+public enum CategoryEnum {
+    IT, DEV_OPS, DEVELOPMENT, ADMININSTRATION
 }
